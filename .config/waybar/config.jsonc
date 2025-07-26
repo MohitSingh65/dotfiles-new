@@ -1,0 +1,240 @@
+// -*- mode: jsonc -*-
+{
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 34, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "niri/workspaces",
+        //"sway/workspaces",
+        "niri/window"
+        //"sway/window",
+        //"sway/mode",
+        //"sway/scratchpad"
+        //"custom/media"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        //"mpd",
+       // "idle_inhibitor",
+        "keyboard-state",
+        "pulseaudio",
+        //"network",
+       // "power-profiles-daemon",
+       // "disk",
+        "cpu",
+        "memory",
+       // "temperature",
+        "backlight",
+        //"sway/language",
+        "battery",
+        //"battery#bat2",
+        "custom/weather",
+        "tray",
+        "custom/updates",
+        "custom/power"
+    ],
+    // Modules configuration
+    // "sway/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "warp-on-scroll": false,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
+   // "keyboard-state": {
+   //     "numlock": true,
+   //     "capslock": true,
+   //     "format": "{name} {icon}",
+   //     "format-icons": {
+   //         "locked": " ",
+   //         "unlocked": " "
+   //    }
+   // },
+    "niri/workspaces": {
+        "all-outputs": false,
+        "format": "{index}"
+       // "format-icons": {
+       //     "default": " ",
+       //     "focused": " ",
+       //     "active": " "
+       // }
+    },
+
+    "niri/window": {
+        "format": "{app_id}",
+        "icon": true,
+        "separate-outputs": true
+    },
+
+  //  "sway/window": {
+  //      "format": "{app_id}",
+  //      "icon": true,
+  //      "all-outputs": false
+  //  },
+
+  //  "sway/mode": {
+  //      "format": "<span style=\"italic\">{}</span>"
+  // },
+  //  "sway/scratchpad": {
+  //      "format": "{icon} {count}",
+  //      "show-empty": false,
+  //      "format-icons": ["", ""],
+  //      "tooltip": true,
+  //      "tooltip-format": "{app}: {title}",
+  //      "on-click": "swaymsg scratchpad show"
+  //  },
+   // //"idle_inhibitor": {
+      //  "format": "{icon}",
+        //"format-icons": {
+          //  "activated": "",
+            //"deactivated": ""
+        //}
+    //},
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "format": "{:%I:%M %p}",
+        "tooltip-format": "<big>{:%I:%M %p}</big>\n<tt><big>{calendar}</big></tt>",
+        "format-alt": "{:%A - %d/%m/%y}"
+    },
+     "cpu": {
+        "interval": 1,
+        "format": " {usage:>2}%"
+    },
+    "memory": {
+        "interval":1,
+        "format": "  {percentage:>2}%"
+    },
+   // "temperature": {
+   //     // "thermal-zone": 2,
+   //     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+   //     "critical-threshold": 80,
+   //     // "format-critical": "{temperatureC}°C {icon}",
+   //     "format": "{icon} {temperatureC}°C",
+   //     "format-icons": ["", "", ""]
+   // },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": " {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    //"battery#bat2": {
+      //  "bat": "BAT0"
+    //},
+    //"power-profiles-daemon": {
+      //"format": "{icon}",
+      //"tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      //"tooltip": true,
+      //"format-icons": {
+       //"default": "",
+        //"performance": "",
+        //"balanced": "",
+        //"power-saver": ""
+      //}
+    //},
+//    "network": {
+//        // "interface": "wlp2*", // (Optional) To force the use of this interface
+//        "format-wifi": "{signalStrength}% ",
+//        "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+//        "tooltip-format": "{ifname} via {gwaddr} ",
+//        "format-linked": "{ifname} (No IP) 󰩠",
+//        "format-disconnected": "Disconnected ⚠",
+//        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+//    },
+
+    "keyboard-state": {
+        "capslock": true,
+        "format": {
+            "capslock": "{icon}"                                                                                                                                                       
+        },
+        "format-icons": {
+            "locked": "CAPS  ",
+            "unlocked": ""
+        }
+    },
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%" ,
+        "format-bluetooth": " {volume}%",
+        "format-bluetooth-muted": "󰂲 ",
+        //"format-muted": " {volume}%",
+        //"format-source": "{volume}% ",
+        //"format-source-muted": "",
+        "format-icons": {
+            "headphone": " ",
+            "default": [ " ", " ", " "]
+        },
+        "on-click": "pavucontrol"
+    },
+        "disk": {
+        "interval": 600,
+        "format": "DISK {percentage_used}%"
+    },
+    
+   "custom/weather": {
+        "exec": "~/.config/waybar/scripts/weather.sh",
+        "interval": 1200,
+        "tooltip": true,
+        "on-click": "exec"
+    },
+
+    "custom/updates": {
+    "exec": "bash $HOME/.config/waybar/scripts/checkupdates.sh", // <--- path to script
+    "on-click-right": "bash $HOME/.config/waybar/scripts/checkupdates.sh", // refresh on right click
+    //"on-click-middle": "exec '$term -e sudo dnf update --refresh'", // update on middle click    
+    "interval": 900, // refresh every 15 minutes
+    "return-type": "json",
+    "format": "{icon}",
+    "format-alt": "{icon} {}",
+    "format-icons": {
+        "has-updates": " ", // icon when updates needed
+        "updated": "" // icon when all packages updated
+    }
+    },
+
+
+    "custom/power": {
+	"format": " ", // This icon is provided by the Awesome-fonts collection, not sure how to paste it unfortunately
+        "on-click": "wlogout"
+//	"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Shutdown'  'shutdown -h now' -b 'Restart' 'shutdown -r now' -b 'Logout' 'swaymsg exit' -b 'Hibernate' 'systemctl hibernate' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
+},
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+}
